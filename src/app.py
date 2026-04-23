@@ -13,7 +13,12 @@ model = joblib.load("models/fraud_model.pkl")
 scaler = joblib.load("models/scaler.pkl")
 feature_columns = joblib.load("models/feature_columns.pkl")
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+openai_api_key = os.getenv("OPENAI_API_KEY")
+
+client = None
+if openai_api_key:
+    from openai import OpenAI
+    client = OpenAI(api_key=openai_api_key)
 
 
 def generate_ai_summary(probability: float, reasons: list[str], prediction: int) -> str:
