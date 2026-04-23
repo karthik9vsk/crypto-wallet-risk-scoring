@@ -1,3 +1,7 @@
+## Live API
+- Base URL: https://crypto-wallet-risk-scoring-production.up.railway.app
+- Swagger Docs: https://crypto-wallet-risk-scoring-production.up.railway.app/docs
+
 # Crypto Fraud Intelligence API
 
 A Python-based crypto wallet fraud detection system that serves wallet risk predictions through a FastAPI backend.
