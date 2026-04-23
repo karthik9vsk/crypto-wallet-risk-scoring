@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crypto Fraud Intelligence</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="bg-grid"></div>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+
+    <main class="page-shell">
+      <section class="hero-card">
+        <div class="hero-badge">Machine Learning • FastAPI • Railway</div>
+        <h1>Crypto Fraud Intelligence</h1>
+        <p>
+          Analyze wallet transaction behavior, generate fraud risk scores, and
+          surface interpretable signals with an analyst-style summary.
+        </p>
+
+        <div class="hero-actions">
+          <button id="loadSampleBtn" class="secondary-btn">Load Sample</button>
+          <button id="copyPayloadBtn" class="ghost-btn">Copy Payload</button>
+        </div>
+      </section>
+
+      <section class="content-grid">
+        <div class="panel input-panel">
+          <div class="panel-header">
+            <h2>Wallet Payload</h2>
+            <span class="panel-tag">JSON Input</span>
+          </div>
+
+          <textarea
+            id="payloadInput"
+            spellcheck="false"
+            placeholder='Paste payload like { "features": { ... } }'
+          ></textarea>
+
+          <div class="action-row">
+            <button id="predictBtn" class="primary-btn">Analyze Wallet</button>
+            <button id="clearBtn" class="ghost-btn">Clear</button>
+          </div>
+
+          <div id="statusBar" class="status-bar hidden"></div>
+        </div>
+
+        <div class="panel output-panel">
+          <div class="panel-header">
+            <h2>Fraud Intelligence Output</h2>
+            <span id="sourceBadge" class="panel-tag subtle">Awaiting analysis</span>
+          </div>
+
+          <div class="score-shell">
+            <div class="score-card">
+              <div class="score-label">Fraud Probability</div>
+              <div id="scoreValue" class="score-value">--</div>
+              <div class="progress-track">
+                <div id="progressFill" class="progress-fill"></div>
+              </div>
+            </div>
+
+            <div class="risk-card">
+              <div class="score-label">Classification</div>
+              <div id="riskLabel" class="risk-label neutral">Not analyzed</div>
+              <div id="predictionMeta" class="prediction-meta">Prediction: --</div>
+            </div>
+          </div>
+
+          <div class="result-block">
+            <h3>Top Signals</h3>
+            <ul id="signalsList" class="signals-list">
+              <li class="placeholder">No signals yet.</li>
+            </ul>
+          </div>
+
+          <div class="result-block">
+            <div class="result-block-header">
+              <h3>Analyst Summary</h3>
+              <button id="copySummaryBtn" class="mini-btn">Copy Summary</button>
+            </div>
+            <div id="summaryBox" class="summary-box">
+              Run an analysis to generate a summary.
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
